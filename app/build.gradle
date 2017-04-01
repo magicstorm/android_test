@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+
+/*retro lambda*/
+//buildscript {
+//    repositories {
+//        mavenCentral()
+//    }
+//
+//    dependencies {
+//        classpath 'me.tatarka:gradle-retrolambda:3.6.0'
+//    }
+//}
+//
+//// Required because retrolambda is on maven central
+//repositories {
+//    mavenCentral()
+//}
+//
+//apply plugin: 'com.android.application' //or apply plugin: 'java'
+//apply plugin: 'me.tatarka.retrolambda'
+
+
+
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+    defaultConfig {
+        applicationId "com.lansun.tests"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main { res.srcDirs = [
+                'src/main/res', 'src/main/retrofit', 'src/main/retrofit/layout'] }
+    }
+
+}
+
+android.sourceSets {
+    main.res.srcDirs = [
+            'src/main/res',
+            'src/main/res/layout/activity_main',
+            'src/main/retrofit/',
+
+
+
+            //parcel
+            'src/main/parcel/res'
+    ]
+
+    main.java.srcDirs = [
+            'src/main/parcel/java',
+            'src/main/java'
+    ]
+
+    main.assets.srcDirs = [
+            'src/main/parcel/assets',
+            'src/main/assets'
+    ]
+}
+
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.chanven.lib:cptr:1.1.0'
+    compile project(':volley')
+    compile 'com.android.support:recyclerview-v7:25.0.1'
+    compile files('libs/xUtils-2.6.14.jar')
+    compile files('libs/AMap2DMap_4.2.0_AMapSearch_4.0.0_AMapLocation_3.3.0_20170120.jar')
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+    compile 'io.reactivex:rxandroid:1.2.0'
+    compile 'io.reactivex:rxjava:1.2.0'
+}

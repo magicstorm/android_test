@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:onClick="onClick"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/id_et"
+        android:hint="身份证"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:layout_width="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
