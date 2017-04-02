@@ -46,7 +46,6 @@ public class MClassLoader extends ClassLoader{
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 InputStream is = response.body().byteStream();
-
                 try {
                     savePatch(is, path);
                 } catch (IOException e) {
