@@ -139,7 +139,7 @@ public class MClassLoader extends ClassLoader{
         FileInputStream fis = new FileInputStream(file);
 
 
-        byte[] bytes = new byte[(int)file.length());
+        byte[] bytes = new byte[(int)file.length()];
 
         int r = fis.read(bytes);
 
